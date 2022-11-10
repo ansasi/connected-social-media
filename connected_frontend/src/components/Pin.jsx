@@ -72,7 +72,7 @@ const Pin = ({ pin }) => {
         {image && (
           <img
             className="rounded-lg w-full "
-            src={urlFor(image).width(250).url()}
+            src={urlFor(image).width(600).url()}
             alt="user-post"
           />
         )}
