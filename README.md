@@ -16,6 +16,7 @@ Install Sanity in the backend folder and initialize it.
 
 `
 npm install -g @sanity/cli
+
 sanity init
 `
 
@@ -35,6 +36,7 @@ Install Talwindcss.
 
 `
 npm install -D tailwindcss postcss autoprefixer
+
 npx tailwindcss init -p
 `
 
@@ -42,7 +44,9 @@ Then add it to index.css.
 
 `
 @tailwind base;
+
 @tailwind components;
+
 @tailwind utilities;
 `
 
