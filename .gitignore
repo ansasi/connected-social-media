@@ -4,6 +4,9 @@
 
 /connected_frontend/.env
 
+# production
+/build
+
 ### Node ###
 # Logs
 logs
