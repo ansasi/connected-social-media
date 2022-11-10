@@ -2,7 +2,7 @@
 
 This project is a social media app similar to Pinterest.
 
-(![Connected Demo](https://user-images.githubusercontent.com/60159818/201227892-696aa222-c3dc-4026-9df0-432d5494ac90.JPG)
+![Connected Demo](https://user-images.githubusercontent.com/60159818/201227892-696aa222-c3dc-4026-9df0-432d5494ac90.JPG)
 
 You can use this project as inspiration for yours. Here are the tools I used.
 
