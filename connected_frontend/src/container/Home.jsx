@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { HiMenu } from "react-icons/hi";
 import { AiFillCloseCircle } from "react-icons/ai";
+import { CgProfile } from "react-icons/cg";
 import { Link, Route, Routes } from "react-router-dom";
 
 import { Sidebar, UserProfile } from "../components";
@@ -43,9 +44,17 @@ const Home = () => {
           <Link to="/">
             <img src={logo} alt="logo" className="w-28" />
           </Link>
-          <Link to={`user-profile/${user?._id}`}>
-            <img src={user?.image} alt="user-pic" className="w-9 h-9 rounded-full " />
-          </Link>
+          {user ? (
+            <Link to={`user-profile/${user?._id}`}>
+              <img src={user?.image} alt="user-pic" className="w-9 h-9 rounded-full " />
+            </Link>
+          ) : (
+            <Link
+              to="/login"
+              className="text-white bg-red-500 rounded-lg w-11 h-11 md:w-14 md:h-12 flex justify-center items-center">
+              <CgProfile fontSize={30} />
+            </Link>
+          )}
         </div>
         {toggleSidebar && (
           <div className="fixed w-4/5 bg-white h-screen overflow-y-auto shadow-md z-10 animate-slide-in">

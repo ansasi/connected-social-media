@@ -33,7 +33,7 @@ const Navbar = ({ searchTerm, setSearchTerm, user }) => {
       ) : (
         <Link
           to="/login"
-          className="text-white bg-red-500 rounded-lg w-12 h-12 md:w-14 md:h-12 flex justify-center items-center">
+          className="text-white bg-red-500 rounded-lg w-12 h-12 md:w-14 md:h-12 flex justify-center items-center max-md:hidden">
           <CgProfile fontSize={35} />
         </Link>
       )}
