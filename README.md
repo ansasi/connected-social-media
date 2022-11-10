@@ -14,11 +14,11 @@ Sanity is used for backend storage.
 
 Install Sanity in the backend folder and initialize it.
 
-`
+``
 npm install -g @sanity/cli
 
 sanity init
-`
+``
 
 For more info: <https://www.sanity.io/docs/create-a-sanity-project>
 
@@ -35,20 +35,17 @@ npx create-react-app connectivity_frontend
 Install Talwindcss.
 
 `
-npm install -D tailwindcss postcss autoprefixer
-
+npm install -D tailwindcss postcss autoprefixer     
 npx tailwindcss init -p
 `
 
 Then add it to index.css.
 
-`
+``
 @tailwind base;
-
 @tailwind components;
-
 @tailwind utilities;
-`
+``
 
 For more info: <https://tailwindcss.com/docs/guides/create-react-app>
 
