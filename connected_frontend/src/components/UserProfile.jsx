@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { AiOutlineLogout } from "react-icons/ai";
 import { useParams, useNavigate } from "react-router-dom";
-import { GoogleLogout } from "react-google-login";
+import { googleLogout } from "@react-oauth/google";
 
 import { userCreatedPinsQuery, userQuery, userSavedPinsQuery } from "../utils/data";
 import { client } from "../client";
 import MasonryLayout from "./MasonryLayout";
 import Spinner from "./Spinner";
 
-const activeBtnStyles = "bg-red-500 text-white font-bold p-2 rounded-full w-20 outline-none";
+const activeBtnStyles = "bg-red-500 text-white font-bold p-2 rounded-full w-20 outline-hidden";
 const notActiveBtnStyles =
-  "bg-primary mr-4 text-black font-bold p-2 rounded-full w-20 outline-none";
+  "bg-primary mr-4 text-black font-bold p-2 rounded-full w-20 outline-hidden";
 
 const UserProfile = () => {
   const [user, setUser] = useState();
@@ -49,6 +49,7 @@ const UserProfile = () => {
   }, [text, userId]);
 
   const logout = () => {
+    googleLogout();
     localStorage.clear();
 
     navigate("/login");
@@ -75,20 +76,13 @@ const UserProfile = () => {
           <h1 className="font-bold text-3xl text-center mt-3">{user.userName}</h1>
           <div className="absolute top-5 z-1 right-5 p-2">
             {User && userId === User?.googleId && (
-              <GoogleLogout
-                clientId={`${process.env.REACT_APP_GOOGLE_API_TOKEN}`}
-                render={(renderProps) => (
-                  <button
-                    type="button"
-                    className=" bg-white p-2 rounded-full cursor-pointer outline-none shadow-md"
-                    onClick={renderProps.onClick}
-                    disabled={renderProps.disabled}>
-                    <AiOutlineLogout color="red" fontSize={38} />
-                  </button>
-                )}
-                onLogoutSuccess={logout}
-                cookiePolicy="single_host_origin"
-              />
+              <button
+                type="button"
+                className=" bg-white p-2 rounded-full cursor-pointer outline-hidden shadow-md"
+                onClick={logout}
+                aria-label="Sign out">
+                <AiOutlineLogout color="red" fontSize={38} />
+              </button>
             )}
           </div>
         </div>

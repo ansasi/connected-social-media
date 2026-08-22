@@ -1,24 +1,31 @@
-# Getting Started
+# Connected frontend
 
-...
+The React frontend for Connected, built with Vite and Tailwind CSS.
 
-### Libraries installation
+## Requirements
 
-First, install Tailwind library.
+- Node.js 22.12 or newer
+- npm
 
-Then install all this libraries:
-'''
-npm install @sanity/client @sanity/image-url react-google-login react-icons react-loader-spinner react-router-dom react-masonry-css uui
-'''
+## Environment
 
-### Google platform
+Create a `.env` file with:
 
-For auth
+```dotenv
+VITE_GOOGLE_CLIENT_ID=your-google-client-id
+VITE_SANITY_PROJECT_ID=your-sanity-project-id
+VITE_SANITY_TOKEN=your-sanity-token
+```
 
-### Sanity
+Existing Netlify variables named `REACT_APP_GOOGLE_API_TOKEN`,
+`REACT_APP_SANITY_PROJECT_ID`, and `REACT_APP_SANITY_TOKEN` remain supported by
+the Vite configuration during migration.
 
-For storage
+## Development
 
-## Notes
+```bash
+npm install
+npm run dev
+```
 
-Takes a while to delete, create or comment a pic
+Create the production bundle with `npm run build`.

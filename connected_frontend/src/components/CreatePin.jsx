@@ -123,7 +123,7 @@ const CreatePin = ({ user }) => {
                 />
                 <button
                   type="button"
-                  className="absolute bottom-3 right-3 p-3 rounded-full bg-white text-xl cursor-pointer outline-none hover:shadow-md transition-all duration-500 ease-in-out"
+                  className="absolute bottom-3 right-3 p-3 rounded-full bg-white text-xl cursor-pointer outline-hidden hover:shadow-md transition-all duration-500 ease-in-out"
                   onClick={() => setImageAsset(null)}>
                   <MdDelete />
                 </button>
@@ -137,7 +137,7 @@ const CreatePin = ({ user }) => {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="* Add your title"
-            className="outline-none text-2xl sm:text-3xl font-bold border-b-2 border-gray-200 p-2"
+            className="outline-hidden text-2xl sm:text-3xl font-bold border-b-2 border-gray-200 p-2"
           />
           {user && (
             <div className="flex gap-2 mt-2 mb-2 items-center bg-white rounded-lg ">
@@ -150,14 +150,14 @@ const CreatePin = ({ user }) => {
             value={about}
             onChange={(e) => setAbout(e.target.value)}
             placeholder="Tell us a little bit about your Pin"
-            className="outline-none text-base sm:text-lg border-b-2 border-gray-200 p-2"
+            className="outline-hidden text-base sm:text-lg border-b-2 border-gray-200 p-2"
           />
           <input
             type="url"
             value={destination}
             onChange={(e) => setDestination(e.target.value)}
             placeholder="Add a destination link"
-            className="outline-none text-base sm:text-lg border-b-2 border-gray-200 p-2"
+            className="outline-hidden text-base sm:text-lg border-b-2 border-gray-200 p-2"
           />
           <div className="flex flex-col">
             <div>
@@ -166,13 +166,13 @@ const CreatePin = ({ user }) => {
                 onChange={(e) => {
                   setCategory(e.target.value);
                 }}
-                className="outline-none w-4/5 text-base border-b-2 border-gray-200 p-2 rounded-md cursor-pointer">
+                className="outline-hidden w-4/5 text-base border-b-2 border-gray-200 p-2 rounded-md cursor-pointer">
                 <option value="others" className="sm:text-bg bg-white">
                   Select Category
                 </option>
                 {categories.map((item) => (
                   <option
-                    className="text-base border-0 outline-none capitalize bg-white text-black "
+                    className="text-base border-0 outline-hidden capitalize bg-white text-black "
                     value={item.name}>
                     {item.name}
                   </option>
@@ -183,7 +183,7 @@ const CreatePin = ({ user }) => {
               <button
                 type="button"
                 onClick={savePin}
-                className="bg-red-500 text-white font-bold p-2 rounded-full w-28 outline-none">
+                className="bg-red-500 text-white font-bold p-2 rounded-full w-28 outline-hidden">
                 Save Pin
               </button>
             </div>

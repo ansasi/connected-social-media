@@ -1,9 +1,18 @@
-# Sanity Clean Content Studio
+# Connected Sanity Studio
 
-Congratulations, you have now installed the Sanity Content Studio, an open source real-time content editing environment connected to the Sanity backend.
+The content studio for Connected, powered by Sanity Studio 6.
 
-Now you can do the following things:
+## Requirements
 
-- [Read “getting started” in the docs](https://www.sanity.io/docs/introduction/getting-started?utm_source=readme)
-- [Join the community Slack](https://slack.sanity.io/?utm_source=readme)
-- [Extend and build plugins](https://www.sanity.io/docs/content-studio/extending?utm_source=readme)
+- Node.js 22.12 or newer
+- npm
+
+## Development
+
+```bash
+npm install
+npm run dev
+```
+
+Create a production build with `npm run build` and deploy the Studio with
+`npm run deploy`.

@@ -42,7 +42,7 @@ const Sidebar = ({ closeToggle, user }) => {
               <img
                 src={category.image}
                 alt="category_pic"
-                className="object-cover w-9 h-9 rounded-full shadow-sm"
+                className="object-cover w-9 h-9 rounded-full shadow-xs"
               />
               {category.name}
             </NavLink>
