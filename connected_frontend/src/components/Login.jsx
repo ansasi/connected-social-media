@@ -1,30 +1,19 @@
 import React from "react";
-import GoogleLogin from "react-google-login";
-import { useState } from "react";
+import { GoogleLogin } from "@react-oauth/google";
+import { jwtDecode } from "jwt-decode";
 import { useNavigate } from "react-router-dom";
-import { FcGoogle } from "react-icons/fc";
 import connectedVideo from "../assets/share.mp4";
 import logo from "../assets/logowhite.png";
-import { gapi } from "gapi-script";
 
 import { client } from "../client";
 
 const Login = () => {
-  // You need this code to enable Google Sign-In
-  useState(() => {
-    gapi.load("client:auth2", () => {
-      gapi.client.init({
-        clientId: `${process.env.REACT_APP_GOOGLE_API_TOKEN}`,
-      });
-    });
-  }, []);
-  // End of Google Sign-In code
-
   const navigate = useNavigate();
   const responseGoogle = (response) => {
-    console.log(response);
-    localStorage.setItem("user", JSON.stringify(response.profileObj));
-    const { name, googleId, imageUrl } = response.profileObj;
+    const { name, sub: googleId, picture: imageUrl } = jwtDecode(response.credential);
+    const profile = { name, googleId, imageUrl };
+
+    localStorage.setItem("user", JSON.stringify(profile));
     const doc = {
       _id: googleId,
       _type: "user",
@@ -56,19 +45,10 @@ const Login = () => {
 
           <div className="shadow-2xl">
             <GoogleLogin
-              clientId={`${process.env.REACT_APP_GOOGLE_API_TOKEN}`}
-              render={(renderProps) => (
-                <button
-                  type="button"
-                  className="bg-mainColor flex justify-center items-center p-3 rounded-lg cursor-pointer outline-none"
-                  onClick={renderProps.onClick}
-                  disabled={renderProps.disabled}>
-                  <FcGoogle className="mr-4" /> Sign in with google
-                </button>
-              )}
               onSuccess={responseGoogle}
-              onFailure={responseGoogle}
-              cookiePolicy="single_host_origin"
+              onError={() => console.error("Google sign-in failed")}
+              shape="pill"
+              text="signin_with"
             />
           </div>
         </div>
